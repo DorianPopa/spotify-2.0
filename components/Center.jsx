@@ -43,11 +43,11 @@ const Center = () => {
 					onClick={signOut}
 				>
 					<img
-						className="rounded-full w-10 h-10"
+						className="rounded-full w-7 h-7"
 						src={session?.user.image}
 						alt=""
 					/>
-					<h2>{session?.user.name}</h2>
+					<h2 className="font-bold">{session?.user.name}</h2>
 					<ChevronDownIcon className="h-5 w-5" />
 				</div>
 			</header>
@@ -61,10 +61,21 @@ const Center = () => {
 					alt=""
 				/>
 				<div>
-					<p>Playlist</p>
-					<h1 className="text-2xl md:text-3xl xl:text-5xl font-bold">
+					<p className="font-bold text-sm">PLAYLIST</p>
+					<h1 className="text-2xl md:text-3xl xl:text-5xl font-bold pb-2">
 						{playlist?.name}
 					</h1>
+					<div className="text-gray-500 text-sm hidden md:flex flex-col gap-y-1">
+						<p>{playlist?.description}</p>
+						<div className="flex flex-row gap-x-2 ">
+							<p className="text-white font-bold">
+								{" "}
+								{playlist?.owner.display_name}
+							</p>
+							<p>-</p>
+							<p>{playlist?.tracks.total} songs</p>
+						</div>
+					</div>
 				</div>
 			</section>
 
